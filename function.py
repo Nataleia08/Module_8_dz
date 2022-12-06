@@ -26,8 +26,8 @@ def get_birthdays_per_week(users: list) -> None:
     curr_date = date.today()
     date_week = curr_date.weekday()
     for i in range(7):
-        period = timedelta(days=i+1)
+        period = timedelta(days=i)
         birthday_day = period + curr_date  # отримання дати наступного дня
-        birthday_weekday = (date_week + i + 1) % 7
+        birthday_weekday = (date_week + i) % 7
         list_b = birthday_list(users, birthday_day)
         print(weekday_name[str(birthday_weekday)], ": ", list_b)

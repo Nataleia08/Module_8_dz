@@ -1,14 +1,22 @@
 from datetime import date
 import function
 
-users_list = [
-    {"name": "Natali", "birthday": date(year=1993, month=12, day=6)},
-    {"name": "Kate", "birthday": date(year=1993, month=12, day=4)},
-    {"name": "Irina", "birthday": date(year=1993, month=12, day=9)},
-]
 
+# ------------------------------Отримання даних колег із файлу source.txt-------------------
 users_list = []
-with open("")
+with open("source.txt", "r") as fh:
+    while True:
+        users_list.append(fh.readline())
+        if users_list[-1] == "":
+            break
+users_list.remove("")
+# --------------------------Формування списку колег-------------------------------------
+users_list_dict = []
+for u in users_list:
+    l = u.split(" ")
+    k = l[1].split("-")
+    d = {"name": l[0], "birthday": date(
+        year=int(k[0]), month=int(k[1]), day=int(k[2].removesuffix("\n")))}
+    users_list_dict.append(d)
 
-
-function.get_birthdays_per_week(users_list)
+function.get_birthdays_per_week(users_list_dict)
