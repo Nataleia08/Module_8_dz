@@ -37,6 +37,7 @@ def get_birthdays_per_week(users: list) -> None:
         if birthday_weekday == 0:
             weekday_list.extend(list_b)
             print(weekday_name[str(birthday_weekday)],
-                  " (with Saturday and Sunday): ", weekday_list)
+                  "(with Saturday and Sunday):", ', '.join(weekday_list))
         elif (birthday_weekday < 5) and (birthday_weekday > 0):
-            print(weekday_name[str(birthday_weekday)], " : ", list_b)
+            print(weekday_name[str(birthday_weekday)],
+                  ":", ', '.join(list_b))
