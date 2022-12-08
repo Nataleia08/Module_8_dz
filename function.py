@@ -31,13 +31,16 @@ def get_birthdays_per_week(users: list) -> None:
         period = timedelta(days=i + week_delta)
         birthday_day = period + curr_date  # отримання дати дня народження
         birthday_weekday = (date_week + i + week_delta) % 7
+        # список імениників певного дня
         list_b = birthday_list(users, birthday_day)
         if (birthday_weekday == 5) or (birthday_weekday == 6):
             weekday_list.extend(list_b)
+        # ----------------вивід іменинників понеділка--------------------------
         if birthday_weekday == 0:
             weekday_list.extend(list_b)
             print(weekday_name[str(birthday_weekday)],
                   "(with Saturday and Sunday):", ', '.join(weekday_list))
+        # ------------вивід іменинників інших днів-----------------------
         elif (birthday_weekday < 5) and (birthday_weekday > 0):
             print(weekday_name[str(birthday_weekday)],
                   ":", ', '.join(list_b))
