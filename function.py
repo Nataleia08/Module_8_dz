@@ -29,7 +29,7 @@ def get_birthdays_per_week(users: list) -> None:
     weekday_list = []
     for i in range(7):
         period = timedelta(days=i + week_delta)
-        birthday_day = period + curr_date  # отримання дати наступного дня
+        birthday_day = period + curr_date  # отримання дати дня народження
         birthday_weekday = (date_week + i + week_delta) % 7
         list_b = birthday_list(users, birthday_day)
         if (birthday_weekday == 5) or (birthday_weekday == 6):
